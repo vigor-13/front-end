@@ -12,11 +12,13 @@
     "prettier:check": "prettier --check pages/*"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.31.1",
-    "react-query": "^3.39.0"
+    "react-query": "^3.39.0",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
@@ -24,6 +26,7 @@
     "@types/node": "17.0.34",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
+    "@types/react-redux": "^7.1.24",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "husky": "^8.0.1",
