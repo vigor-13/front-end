@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
+import { wrapper } from '@redux-store';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState<QueryClient>(() => new QueryClient());
@@ -15,4 +16,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
