@@ -21,6 +21,7 @@
       "@redux-store": ["redux-store/index.ts"]
     }
   },
+  "files": ["./node_modules/redux-persist/types/integration/react.d.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "commitlint.config.js"]
 }

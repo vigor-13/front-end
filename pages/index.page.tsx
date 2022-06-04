@@ -1,12 +1,11 @@
-import { useAppDispatch, useAppSelector, wrapper } from '@redux-store';
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
+import { useAppDispatch, useAppSelector } from '@redux-store';
+import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { setIsLogin } from 'redux-store/slices';
 
 const Home: NextPage = (props: any) => {
   const dispatch = useAppDispatch();
-
-  console.log(props);
+  const storeState = useAppSelector((state) => state);
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,18 +16,14 @@ const Home: NextPage = (props: any) => {
   return <div>Home Page</div>;
 };
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  (store) => {
-    return async ({ req, res, ...rest }) => {
-      console.log(store.getState());
-
-      return {
-        props: {
-          store: store.getState(),
-        },
-      };
-    };
-  }
-);
+// export const getStaticProps: GetStaticProps = wrapper.getStaticProps((store) => {
+//   return async () => {
+//     return {
+//       props: {
+//         store: store.getState(),
+//       },
+//     };
+//   };
+// });
 
 export default Home;
