@@ -19,7 +19,8 @@
     "react-dom": "18.1.0",
     "react-hook-form": "^7.31.1",
     "react-query": "^3.39.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
