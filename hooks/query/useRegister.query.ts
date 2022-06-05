@@ -13,8 +13,13 @@ const registerQyery = async (payload: any) => {
     .then((data) => data);
 };
 
+export interface UseRegisterPayload {
+  key: string;
+  password: string;
+}
+
 export const useRegisterQuery = () => {
-  const [payload, setPayload] = useState<any>();
+  const [payload, setPayload] = useState<UseRegisterPayload | null>();
   const queryResult = useQuery(
     ['payload'],
     async () => await registerQyery(payload),

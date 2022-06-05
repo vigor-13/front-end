@@ -10,12 +10,6 @@ const Home: NextPageWithLayout = (props: any) => {
   const dispatch = useAppDispatch();
   const storeState = useAppSelector((state) => state);
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(setIsLogin(true));
-    }, 5000);
-  }, []);
-
   return <div className="text-3xl font-bold underline">Home Page</div>;
 };
 

@@ -1,22 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface AppSliceState {
-  isLogin: boolean;
-}
+export interface AppSliceState {}
 
-const appSliceState: AppSliceState = {
-  isLogin: false,
-};
+const appSliceState: AppSliceState = {};
 
 export const appSlice = createSlice({
   name: 'app',
   initialState: appSliceState,
-  reducers: {
-    setIsLogin(state, action: PayloadAction<boolean>) {
-      state.isLogin = action.payload;
-    },
-  },
+  reducers: {},
 });
 
-export const { setIsLogin } = appSlice.actions;
+// export const { } = appSlice.actions;
 export const appSliceReducer = appSlice.reducer;

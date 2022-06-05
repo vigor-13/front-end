@@ -5,7 +5,10 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@components/Button';
 import AuthInput from './AuthInput';
-import { useRegisterQuery } from '@hooks/query';
+import { useRegisterQuery, UseRegisterPayload } from '@hooks/query';
+import { useAppDispatch } from '@redux-store/store.hooks';
+import { setAccessToken, setIsLogin } from '@redux-store/slices';
+import { useRouter } from 'next/router';
 
 const LocalRegisterFormScheme = yup.object().shape({
   email: yup
@@ -30,6 +33,8 @@ interface LocalRegisterFields {
 export interface LocalRegisterFormProps extends BaseComponentProps {}
 
 const LocalRegisterForm: FC<LocalRegisterFormProps> = (props) => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
   const method = useForm<LocalRegisterFields>({
     mode: 'onChange',
     reValidateMode: 'onChange',
@@ -44,13 +49,20 @@ const LocalRegisterForm: FC<LocalRegisterFormProps> = (props) => {
   const { data } = queryResult;
 
   const onSubmit = (data: any) => {
-    const payload = {
+    const payload: UseRegisterPayload = {
       key: data.email,
       password: data.password,
     };
 
     setPayload(payload);
   };
+
+  useEffect(() => {
+    if (data && data.access_token) {
+      dispatch(setAccessToken(data.access_token));
+      router.push('/').then(() => router.reload());
+    }
+  }, [data]);
 
   return (
     <FormProvider {...method}>

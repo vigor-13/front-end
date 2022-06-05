@@ -1,11 +1,13 @@
 import { AnyAction, combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import { appSliceReducer, AppSliceState } from './app.slice';
+import { authSliceReducer, AuthSliceState } from './auth.slice';
 
 export const SET_CLIENT_STATE = 'SET_CLIENT_STATE';
 
 export interface RootState {
   app: AppSliceState;
+  auth: AuthSliceState;
 }
 
 export const rootReducer = (state: RootState, action: AnyAction) => {
@@ -23,6 +25,7 @@ export const rootReducer = (state: RootState, action: AnyAction) => {
     default: {
       const combinedReducer = combineReducers({
         app: appSliceReducer,
+        auth: authSliceReducer,
       });
 
       return combinedReducer(state, action);

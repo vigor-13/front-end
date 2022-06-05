@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@util-types": ["utils/types/index.ts", "utils/types/*"],
-      "@redux-store": ["redux-store/index.ts"],
+      "@redux-store/*": ["redux-store/*"],
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"]

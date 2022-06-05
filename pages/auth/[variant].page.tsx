@@ -12,7 +12,7 @@ const AuthPage: NextPageWithLayout = (props: AuthPageProps) => {
   const { variant: _variant } = props; // from Component Props
   const query = router.query; // from Router
 
-  const variant = isValidVariant(query)
+  const variant = _isValidVariant(query)
     ? (query.variant as 'login' | 'register')
     : _variant;
   if (!variant) return null;
@@ -25,7 +25,7 @@ const AuthPage: NextPageWithLayout = (props: AuthPageProps) => {
   );
 };
 
-const isValidVariant = (query: ParsedUrlQuery): boolean => {
+const _isValidVariant = (query: ParsedUrlQuery): boolean => {
   return query.variant === ('login' || 'register');
 };
 
