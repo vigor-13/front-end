@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
-const loginQuery = (payload: any) => {
-  return fetch('http://localhost:8080/auth/login', {
+const registerQyery = (payload: any) => {
+  return fetch('http://localhost:8080/user/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -11,9 +11,9 @@ const loginQuery = (payload: any) => {
   });
 };
 
-export const useLoginQuery = () => {
+export const useRegisterQuery = () => {
   const [payload, setPayload] = useState<any>();
-  const queryResult = useQuery(['payload'], () => loginQuery(payload), {
+  const queryResult = useQuery(['payload'], () => registerQyery(payload), {
     suspense: false,
     useErrorBoundary: true,
     cacheTime: 0,
