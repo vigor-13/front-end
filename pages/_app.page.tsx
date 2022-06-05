@@ -1,12 +1,13 @@
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { wrapper } from '@redux-store';
 import { useStore } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { AppPropsWithLayout } from '@utils/types';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
   const [queryClient] = useState<QueryClient>(() => new QueryClient());
   const store = useStore();
 
@@ -15,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <PersistGate persistor={store.__persistor} loading={<div>LOADING...</div>}>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </Hydrate>
       </QueryClientProvider>
     </PersistGate>
