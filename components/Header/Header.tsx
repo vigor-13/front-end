@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { BaseComponentProps } from '@utils/types';
 import Button from '@components/Button';
 import { useModal } from '@components/utils/Modal';
-import { AuthPageProps } from 'pages/auth/[variant]';
+import { AuthPageProps } from 'pages/auth/[variant].page';
 
 const DynamicAuthPage = dynamic<AuthPageProps>(() => import('../../pages/auth'), {
   ssr: false,

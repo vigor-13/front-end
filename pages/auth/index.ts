@@ -1,1 +1,1 @@
-export { default } from './[variant]';
+export { default } from './[variant].page';
