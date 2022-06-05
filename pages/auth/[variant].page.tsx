@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '@utils/types';
-import { AuthForm, LocalLoginForm } from './_components';
+import { AuthForm, LocalLoginForm, LocalRegisterForm } from './_components';
 import { ParsedUrlQuery } from 'querystring';
 
 export interface AuthPageProps {
@@ -20,7 +20,7 @@ const AuthPage: NextPageWithLayout = (props: AuthPageProps) => {
   return (
     <div>
       <h2 className="mb-4 text-lg font-bold first-letter:uppercase">{variant}</h2>
-      <div>{variant === 'login' ? <LocalLoginForm /> : null}</div>
+      <div>{variant === 'login' ? <LocalLoginForm /> : <LocalRegisterForm />}</div>
     </div>
   );
 };
