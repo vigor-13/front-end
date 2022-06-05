@@ -20,7 +20,9 @@
     "react-hook-form": "^7.31.1",
     "react-query": "^3.39.0",
     "react-redux": "^8.0.2",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "react-icons": "^4.3.1",
+    "react-use": "^17.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
