@@ -16,9 +16,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@components": ["components/index.ts", "components/*"],
       "@util-types": ["utils/types/index.ts", "utils/types/*"],
-      "@redux-store": ["redux-store/index.ts"]
+      "@redux-store": ["redux-store/index.ts"],
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "files": ["./node_modules/redux-persist/types/integration/react.d.ts"],

@@ -1,10 +1,12 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import * as yup from 'yup';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { BaseComponentProps } from '@utils/types';
 import Button from '@components/Button';
 import AuthInput from './AuthInput';
+import { useQuery } from 'react-query';
+import { useLoginQuery } from '@hooks/query';
 
 export const authFormScheme = yup.object().shape({
   email: yup
@@ -42,7 +44,22 @@ const AuthForm: FC<AuthFormProps> = (props) => {
     resolver: yupResolver(authFormScheme),
   });
 
-  const onSubmit = (data: any) => console.log(data);
+  const getMode = () => fetch('http://localhost:8080/auth/login');
+  const { setPayload, queryResult } = useLoginQuery();
+  const { data } = queryResult;
+
+  const onSubmit = (data: any) => {
+    const payload = {
+      username: 'john',
+      password: data.password,
+    };
+    setPayload(payload);
+  };
+
+  useEffect(() => {
+    if (!data) return;
+    console.log(data);
+  }, [data]);
 
   return (
     <FormProvider {...method}>

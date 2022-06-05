@@ -4,6 +4,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { wrapper } from '@redux-store';
 import { useStore } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { AppPropsWithLayout } from '@utils/types';
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           {getLayout(<Component {...pageProps} />)}
+          <ReactQueryDevtools initialIsOpen={false} />
         </Hydrate>
       </QueryClientProvider>
     </PersistGate>
