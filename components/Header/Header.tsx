@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { BaseComponentProps } from '@utils/types';
 import Button from '@components/Button';
+import Portal from '@components/utils/Portal';
 
 export interface HeaderProps extends BaseComponentProps {}
 
