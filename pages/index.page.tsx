@@ -13,7 +13,7 @@ const Home: NextPage = (props: any) => {
     }, 5000);
   }, []);
 
-  return <div>Home Page</div>;
+  return <div className="text-3xl font-bold underline">Home Page</div>;
 };
 
 // export const getStaticProps: GetStaticProps = wrapper.getStaticProps((store) => {
