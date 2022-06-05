@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '@redux-store';
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { setIsLogin } from 'redux-store/slices';
+import Layout from '@components/layout';
 
 const Home: NextPage = (props: any) => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,11 @@ const Home: NextPage = (props: any) => {
     }, 5000);
   }, []);
 
-  return <div className="text-3xl font-bold underline">Home Page</div>;
+  return (
+    <Layout>
+      <div className="text-3xl font-bold underline">Home Page</div>
+    </Layout>
+  );
 };
 
 // export const getStaticProps: GetStaticProps = wrapper.getStaticProps((store) => {
