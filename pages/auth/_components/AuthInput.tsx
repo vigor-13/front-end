@@ -26,7 +26,11 @@ const AuthInput: FC<AuthInputProps> = (props) => {
         {...rest}
         {...register(name)}
       />
-      {errorMessage ?? <div>{errorMessage}</div>}
+      {errorMessage ? (
+        <div className="flex flex-row-reverse text-red-500 text-xs mt-1">
+          {errorMessage}
+        </div>
+      ) : null}
     </div>
   );
 };
